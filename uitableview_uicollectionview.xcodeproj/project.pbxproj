@@ -14,6 +14,7 @@
 		DF6FE2042A4FCB77002904AE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FE2032A4FCB77002904AE /* MainViewController.swift */; };
 		DF6FE2072A4FCBB4002904AE /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FE2062A4FCBB4002904AE /* PushViewController.swift */; };
 		DF6FE20B2A4FD0CE002904AE /* PaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6FE20A2A4FD0CE002904AE /* PaddingView.swift */; };
+		DF6FE20E2A4FE3F4002904AE /* SwiftFormat in Frameworks */ = {isa = PBXBuildFile; productRef = DF6FE20D2A4FE3F4002904AE /* SwiftFormat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF6FE20E2A4FE3F4002904AE /* SwiftFormat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +103,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF6FE2002A4FC9D5002904AE /* Build configuration list for PBXNativeTarget "uitableview_uicollectionview" */;
 			buildPhases = (
+				DF6FE2112A4FE559002904AE /* ShellScript */,
 				DF6FE1E82A4FC9D4002904AE /* Sources */,
 				DF6FE1E92A4FC9D4002904AE /* Frameworks */,
 				DF6FE1EA2A4FC9D4002904AE /* Resources */,
@@ -110,6 +113,9 @@
 			dependencies = (
 			);
 			name = uitableview_uicollectionview;
+			packageProductDependencies = (
+				DF6FE20D2A4FE3F4002904AE /* SwiftFormat */,
+			);
 			productName = uitableview_uicollectionview;
 			productReference = DF6FE1EC2A4FC9D4002904AE /* uitableview_uicollectionview.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +144,9 @@
 				Base,
 			);
 			mainGroup = DF6FE1E32A4FC9D4002904AE;
+			packageReferences = (
+				DF6FE20C2A4FE3F4002904AE /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+			);
 			productRefGroup = DF6FE1ED2A4FC9D4002904AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -158,6 +167,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DF6FE2112A4FE559002904AE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DF6FE1E82A4FC9D4002904AE /* Sources */ = {
@@ -378,6 +408,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DF6FE20C2A4FE3F4002904AE /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DF6FE20D2A4FE3F4002904AE /* SwiftFormat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DF6FE20C2A4FE3F4002904AE /* XCRemoteSwiftPackageReference "SwiftFormat" */;
+			productName = SwiftFormat;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DF6FE1E42A4FC9D4002904AE /* Project object */;
 }

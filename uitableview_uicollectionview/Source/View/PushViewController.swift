@@ -7,13 +7,12 @@
 import UIKit
 
 class PushViewController: UIViewController {
-
     var fooView: PushView!
 
     override func loadView() {
         super.loadView()
-        self.fooView = PushView(frame: .zero)
-        self.view = self.fooView
+        fooView = PushView(frame: .zero)
+        view = fooView
     }
 
     override func viewDidLoad() {
@@ -21,25 +20,24 @@ class PushViewController: UIViewController {
     }
 }
 
-
 class PushView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setComponent()
         setConstraint()
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setComponent(){
-        self.backgroundColor = .white
+    private func setComponent() {
+        backgroundColor = .white
     }
 
-    private func setConstraint(){
+    private func setConstraint() {
         NSLayoutConstraint.activate([
-            
         ])
     }
 }
